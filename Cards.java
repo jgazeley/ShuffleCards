@@ -3,17 +3,19 @@ import java.util.Random;
 public class Cards {}
 
 class Card {
+
 	private int value;
 	private int suit;
 	private String v;
 	private String st;
 
 	public Card(int value, int suit) {
+
 		this.value = value;
 		this.suit = suit;
 	}
 
-	public Card() {}
+//*****************************************************************************
 
 	public String getValue() {
 		if(value == 1)
@@ -46,7 +48,10 @@ class Card {
 		return v;
 	}
 
+//*****************************************************************************
+
 	public String getSuit() {
+
 		if(suit == 1)
 			st = "Clubs";
 		if(suit == 2)
@@ -59,8 +64,9 @@ class Card {
 		return st;
 	}
 
-	public int getIntValue() { return value; }
+//*****************************************************************************
 
+	public int getIntValue() { return value; }
 	public int getIntSuit() { return suit; }
 
 	public boolean equals(String other) {
@@ -71,7 +77,12 @@ class Card {
 		String s = getValue() + " of " + getSuit();
 		return s;
 	}
+
+//*****************************************************************************
+
 }
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 class ListNode {
 
@@ -98,13 +109,20 @@ class ListNode {
 		}
 	}
 
+//*****************************************************************************
+
 	//Getter methods for ListNode class
 	public Card getCard() { return card; }
 	public ListNode getNext() { return next; }
 
 	//Setter method to set the reference for the next node
 	public void setNext(ListNode n) { this.next = n; }
+
+//*****************************************************************************
+
 }
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 class Deck {
 
@@ -115,16 +133,22 @@ class Deck {
 		for(int i = 1; i <= 13; i++) {
 			add(i, 3); //add hearts to deck
 		}
+
 		for(int i = 1; i <= 13; i++) {
 			add(i, 1); //add clubs to deck
 		}
+
 		for(int i = 13; i >= 1; i--) {
 			add(i, 2); //add diamonds to deck
 		}
+
 		for(int i = 13; i >= 1; i--) {
 			add(i, 4); //add spades to deck
 		}
+
 	}
+
+//*****************************************************************************
 
 	public void add(int value, int suit) {
 
@@ -144,6 +168,8 @@ class Deck {
 
 		curr.setNext(n);
 	}
+
+//*****************************************************************************
 
 	public void add(int pos, int value, int suit) {
 
@@ -171,6 +197,8 @@ class Deck {
 		curr.setNext(n);
 	}
 
+//*****************************************************************************
+
 	public void remove(String card)	{
 		if(front == null)
 			return;
@@ -185,7 +213,7 @@ class Deck {
 			curr = curr.getNext();
 		}
 
-		if(curr!= null && curr.getNext() == null &&(curr.getCard().equals(card))) {
+		if(curr != null && curr.getNext() == null &&(curr.getCard().equals(card))) {
 			pre.setNext(null);
 		}
 
@@ -196,6 +224,8 @@ class Deck {
 
 		}
 	}
+
+//*****************************************************************************
 
 	public String getString(int pos) {
 	
@@ -210,6 +240,8 @@ class Deck {
 		return curr.getCard().toString();
 	}
 
+//*****************************************************************************
+
 	public Card getCard(int pos) {
 	
 		ListNode curr = front;
@@ -223,14 +255,14 @@ class Deck {
 		return curr.getCard();
 	}
 
+//*****************************************************************************
 
 	public void shuffle() {
 
 		Random r = new Random();
 		String rand;
 		String last;
-		int randValue, lastValue, randSuit, lastSuit;
-		int intRandom;
+		int randValue, lastValue, randSuit, lastSuit, intRandom;
 
 		for(int i = 52; i > 1; i--) {
 
@@ -253,6 +285,8 @@ class Deck {
 		}
 	}
 
+//*****************************************************************************
+
 	public String toString() {
 
 		if(front == null)
@@ -268,7 +302,12 @@ class Deck {
 
 		return s;
 	}
+
+//*****************************************************************************
+
 }
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 class Driver {
 	public static void main(String[] args) {
